@@ -37,4 +37,21 @@ def countryByNamepage(i):
 def countrypage(i):
     return render_template('country.html', c = w[int(i)])
 
+@app.route('/delete/<n>')
+def deleteCountry(n):
+    del w[int(n)] 
+    return render_template('index.html',c == c) 
+@app.route('/delete/<n>')
+def deleteCountry(n):
+    i = 0
+    for c in w:
+        if c['name'] == n:
+            break
+         i = i+1
+    del w[i]
+    return render_template('index.html',
+                           page_number = 0,
+                           page_size = page_size,
+                           w = w[0:page_size])
+
 app.run(host='0.0.0.0', port=5618, debug=True)
